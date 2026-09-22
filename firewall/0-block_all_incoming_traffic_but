@@ -1,6 +1,17 @@
-sudo ufw disable
+#reset ufw to clean state (optional, useful if testing)
+sudo ufw reset
+
+# Set default policies: deny all incoming, allow all outgoing
 sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# Allow the required TCP ports
 sudo ufw allow 22/tcp
-sudo ufw allow 443/tcp
 sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+
+# Enable ufw
 sudo ufw enable
+
+# Check status to confirm
+sudo ufw status verbose
